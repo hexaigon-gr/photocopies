@@ -1,14 +1,84 @@
 {
-  "HomePage": {
-    "title": "Welcome",
-    "description": "Get started by editing this page.",
-    "components": {
-      "title": "Available Components",
-      "button": "Button",
-      "input": "Input",
-      "card": "Card",
-      "label": "Label"
-    }
+  "Metadata": {
+    "title": "Photo Center Ilioupoli | Photocopies, Printing, Blueprints",
+    "description": "25 years of experience in photocopies, printing, engineering blueprints, and office services in Ilioupoli, Athens."
+  },
+  "Nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "callUs": "Call Us"
+  },
+  "Hero": {
+    "headline": "Photo Center Ilioupoli",
+    "subheadline": "25 years by your side — Photocopies, Printing, Services",
+    "cta1": "Call Us",
+    "cta2": "Our Services"
+  },
+  "About": {
+    "title": "About Us",
+    "description": "With over 25 years of experience, Photo Center Ilioupoli is your trusted solution for photocopies, printing, and office services. We serve professionals, students, and individuals with speed, quality, and affordable prices.",
+    "card1Title": "25+ Years of Experience",
+    "card1Desc": "Trust decades of expertise in the printing and photocopying industry.",
+    "card2Title": "Professional Equipment",
+    "card2Desc": "Modern machines for excellent results on every job.",
+    "card3Title": "Fast Service",
+    "card3Desc": "Immediate order fulfillment, even for large volumes."
+  },
+  "Services": {
+    "title": "Services",
+    "subtitle": "Complete printing and office solutions",
+    "blueprints": "Blueprint Printing",
+    "blueprintsDesc": "Large format printing of architectural and engineering drawings (A2, A1, A0). Ideal for architects, engineers, and students.",
+    "photocopies": "Photocopies",
+    "photocopiesDesc": "Black & white and color photocopies in A4 and A3 formats.",
+    "digitalPrinting": "Digital Printing",
+    "digitalPrintingDesc": "High quality digital prints for every need.",
+    "binding": "Binding",
+    "bindingDesc": "Spiral and thermal binding for projects and presentations.",
+    "laminating": "Laminating",
+    "laminatingDesc": "Document lamination for protection and a professional look.",
+    "scanning": "Scanning",
+    "scanningDesc": "High resolution document digitization.",
+    "idPhotos": "ID Photos",
+    "idPhotosDesc": "Photos for ID cards, passports, and other official documents.",
+    "usbPrinting": "Print from USB/Email",
+    "usbPrintingDesc": "Bring your files on USB or send them via email for instant printing.",
+    "businessCards": "Business Cards",
+    "businessCardsDesc": "Design and printing of professional business cards.",
+    "stamps": "Stamps",
+    "stampsDesc": "Professional stamp manufacturing in various sizes.",
+    "stationery": "Stationery & Supplies",
+    "stationeryDesc": "Wide variety of stationery and office supplies."
+  },
+  "Contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch with us",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Working Hours",
+    "formName": "Full Name",
+    "formEmail": "Email",
+    "formPhone": "Phone",
+    "formSubject": "Subject",
+    "formMessage": "Message",
+    "formSend": "Send",
+    "closed": "Closed",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
+  },
+  "Footer": {
+    "rights": "All rights reserved.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Info",
+    "madeBy": "Made by"
   },
   "Admin": {
     "nav": {
