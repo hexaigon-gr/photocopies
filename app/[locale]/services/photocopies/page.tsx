@@ -20,7 +20,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Φωτοαντίγραφα & Εκτυπώσεις | Φωτοαντιγραφικό Κέντρο Ηλιούπολης",
   description:
-    "Ασπρόμαυρα και έγχρωμα φωτοαντίγραφα, εκτύπωση αρχείων PDF/Word/Excel, από USB και email. A3, A4, A5, A6.",
+    "Ασπρόμαυρα και έγχρωμα φωτοαντίγραφα, εκτύπωση αρχείων PDF/Word/Excel, από USB και email. A3, A4, A5.",
 };
 
 const services = [
@@ -30,7 +30,7 @@ const services = [
   { key: "mediaPrinting", icon: Smartphone },
 ] as const;
 
-const sizes = ["A3", "A4", "A5", "A6"];
+const sizes = ["A3", "A4", "A5"];
 const formats = ["PDF", "Word", "Excel", "PowerPoint", "EPS", "CDR", "PSD"];
 const paperTypes = ["Standard", "Velvet", "Illustration", "300gr"];
 

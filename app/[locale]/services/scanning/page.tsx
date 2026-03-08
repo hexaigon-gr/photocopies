@@ -31,7 +31,7 @@ const services = [
   { key: "boundDocs", icon: BookOpen },
 ] as const;
 
-const sizes = ["A0", "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8"];
+const sizes = ["A0", "A1", "A2", "A3", "A4", "A5"];
 const formats = ["PDF", "TIFF", "JPG", "PNG"];
 
 const ScanningPage = async ({ params }: BasePageProps) => {

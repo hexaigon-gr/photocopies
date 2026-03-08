@@ -29,7 +29,7 @@ const services = [
   { key: "specialPaper", icon: FileText },
 ] as const;
 
-const sizes = ["A3", "A4", "A5", "A6"];
+const sizes = ["A3", "A4", "A5"];
 const paperTypes = ["Standard", "Velvet", "Illustration", "300gr"];
 
 const DigitalPrintingPage = async ({ params }: BasePageProps) => {

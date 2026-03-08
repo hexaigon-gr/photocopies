@@ -28,7 +28,7 @@ const services = [
   { key: "heavyDuty", icon: Shield },
 ] as const;
 
-const sizes = ["A3", "A4", "A5", "A6", "A7"];
+const sizes = ["A3", "A4", "A5"];
 
 const LaminatingPage = async ({ params }: BasePageProps) => {
   const { locale } = await params;
