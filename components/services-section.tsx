@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
+import { Link } from "@/lib/i18n/navigation";
 import { Card } from "@/components/ui/card";
 
 const services = [
@@ -32,7 +33,10 @@ const ServicesSection = async () => {
         </p>
 
         {/* Blueprint highlight card */}
-        <div className="group relative mb-12 min-h-[300px] cursor-pointer overflow-hidden rounded-xl md:min-h-[400px]">
+        <Link
+          href="/services/blueprints"
+          className="group relative mb-12 block min-h-[300px] cursor-pointer overflow-hidden rounded-xl md:min-h-[400px]"
+        >
           <Image
             src="/images/services/blueprints.jpg"
             alt={t("blueprints")}
@@ -49,7 +53,7 @@ const ServicesSection = async () => {
               {t("blueprintsDesc")}
             </p>
           </div>
-        </div>
+        </Link>
 
         {/* Services grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

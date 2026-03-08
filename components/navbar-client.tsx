@@ -16,10 +16,10 @@ import {
 import { Menu, Phone, Sun, Moon } from "lucide-react";
 
 const NAV_LINKS = [
-  { key: "home", href: "#hero" },
-  { key: "about", href: "#about" },
-  { key: "services", href: "#services" },
-  { key: "contact", href: "#contact" },
+  { key: "home", href: "/#hero" },
+  { key: "about", href: "/#about" },
+  { key: "services", href: "/#services" },
+  { key: "contact", href: "/#contact" },
 ] as const;
 
 export const NavbarClient = () => {
@@ -60,13 +60,13 @@ export const NavbarClient = () => {
         "fixed top-0 right-0 left-0 z-50 border-b transition-all duration-300",
         scrolled
           ? "border-border bg-background/95 shadow-sm backdrop-blur-md"
-          : "border-transparent bg-transparent"
+          : "border-transparent bg-linear-to-b from-black/40 to-transparent"
       )}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:h-18 lg:px-8">
         {/* Logo / Business Name */}
         <Link
-          href="#hero"
+          href="/"
           className="flex cursor-pointer items-center gap-2.5"
         >
           <span

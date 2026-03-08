@@ -1,7 +1,7 @@
 export const BUSINESS = {
-  name: "Φωτογραφικό Κέντρο Ηλιούπολης",
-  nameEn: "Photo Center Ilioupoli",
-  tagline: "25 χρόνια δίπλα σας — Φωτοτυπίες, Εκτυπώσεις, Υπηρεσίες",
+  name: "Φωτοαντιγραφικό Κέντρο Ηλιούπολης",
+  nameEn: "Photocopy Center Ilioupoli",
+  tagline: "25 χρόνια δίπλα σας — Φωτοαντίγραφα, Εκτυπώσεις, Υπηρεσίες",
   taglineEn:
     "25 years by your side — Photocopies, Printing, Services",
   phone: "210 9953000",
