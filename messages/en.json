@@ -41,8 +41,6 @@
     "laminatingDesc": "Document lamination for protection and a professional look.",
     "scanning": "Scanning",
     "scanningDesc": "High resolution document digitization.",
-    "idPhotos": "ID Photos",
-    "idPhotosDesc": "Photos for ID cards, passports, and other official documents.",
     "usbPrinting": "Print from USB/Email",
     "usbPrintingDesc": "Bring your files on USB or send them via email for instant printing.",
     "businessCards": "Business Cards",
@@ -177,24 +175,6 @@
     "printingDesc": "High resolution digital printing on quality paper. Small or large quantities with fast turnaround times.",
     "finishes": "Finishes",
     "finishesDesc": "Glossy or matte lamination, rounded corners, specialty papers. Every detail counts for a card that stands out."
-  },
-  "IdPhotosPage": {
-    "title": "ID & Document Photos",
-    "subtitle": "Photos for every official document — instant and to specification",
-    "backToServices": "Back to Services",
-    "ctaTitle": "Need document photos?",
-    "ctaDesc": "Visit our shop without an appointment — photos are ready in minutes.",
-    "idCard": "ID Card Photos",
-    "idCardDesc": "Photos in correct dimensions and specifications for Greek national ID cards. Printed on the spot in minutes.",
-    "passport": "Passport Photos",
-    "passportDesc": "Photos meeting international ICAO standards for Greek and foreign passports. Correct size, lighting, and background.",
-    "drivingLicense": "Driving License Photos",
-    "drivingLicenseDesc": "Photos to the proper specifications for driving licenses, residence permits, and any other official document.",
-    "useCases": "Suitable for",
-    "useCase1": "ID Card",
-    "useCase2": "Passport",
-    "useCase3": "Driving License",
-    "useCase4": "CVs & Resumes"
   },
   "LaminatingPage": {
     "title": "Document Laminating",

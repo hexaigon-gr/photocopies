@@ -9,7 +9,6 @@ const services = [
   { key: "binding", image: "/images/services/binding.jpg", href: "/services/binding" },
   { key: "laminating", image: "/images/services/laminating.jpg", href: "/services/laminating" },
   { key: "scanning", image: "/images/services/scanning.jpg", href: "/services/scanning" },
-  { key: "idPhotos", image: "/images/services/id-photos.jpg", href: "/services/id-photos" },
   { key: "usbPrinting", image: "/images/services/usb-printing.jpg", href: "/services/usb-printing" },
   { key: "businessCards", image: "/images/services/business-cards.jpg", href: "/services/business-cards" },
   { key: "stationery", image: "/images/services/stationery.jpg", href: "/services/stationery" },
