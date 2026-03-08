@@ -49,6 +49,8 @@
     "stationeryDesc": "Wide variety of stationery and office supplies."
   },
   "BlueprintsPage": {
+    "metaTitle": "Blueprint Printing | Photocopy Center Ilioupoli",
+    "metaDescription": "Printing, reproduction and digitization of topographic & architectural blueprints in large format. A0, A1, A2, A3.",
     "title": "Topographic & Architectural Blueprint Printing",
     "subtitle": "Color and black & white large format services for professionals and students",
     "backToServices": "Back to Services",
@@ -70,6 +72,8 @@
     "sizes": "Sizes"
   },
   "PhotocopiesPage": {
+    "metaTitle": "Photocopies & Printing | Photocopy Center Ilioupoli",
+    "metaDescription": "Black & white and color photocopies, file printing from PDF/Word/Excel, via USB and email. A3, A4, A5.",
     "title": "Photocopies & Printing",
     "subtitle": "Black & white and color, in every size, with professional results",
     "backToServices": "Back to Services",
@@ -93,6 +97,8 @@
     "paperTypes": "Paper Types"
   },
   "ScanningPage": {
+    "metaTitle": "Scanning & Digitization | Photocopy Center Ilioupoli",
+    "metaDescription": "Document and blueprint digitization to PDF, TIFF, JPG, PNG. From A5 to A0 and custom sizes. Same-day delivery.",
     "title": "Document Scanning & Digitization",
     "subtitle": "Convert your printed documents to digital files — fast, secure, and in high resolution",
     "backToServices": "Back to Services",
@@ -113,6 +119,8 @@
     "boundDocsDesc": "For bound material (books, volumes, theses), delivery time is determined after evaluation. Scanning is done with special care to preserve the original."
   },
   "DigitalPrintingPage": {
+    "metaTitle": "Digital Printing | Photocopy Center Ilioupoli",
+    "metaDescription": "High quality digital prints on laser printers. Black & white, color, large batches, specialty papers.",
     "title": "Digital Printing",
     "subtitle": "High quality prints for every need — fast and affordable",
     "backToServices": "Back to Services",
@@ -130,6 +138,8 @@
     "specialPaperDesc": "Printing on velvet, illustration, 300gr cardstock, and other specialty papers for professional results."
   },
   "BindingPage": {
+    "metaTitle": "Binding | Photocopy Center Ilioupoli",
+    "metaDescription": "Spiral, thermal and specialty binding for theses, corporate documents and presentations.",
     "title": "Binding",
     "subtitle": "Spiral, thermal, and specialty binding for every project",
     "backToServices": "Back to Services",
@@ -150,6 +160,8 @@
     "useCase4": "Presentations"
   },
   "UsbPrintingPage": {
+    "metaTitle": "Print from USB & Email | Photocopy Center Ilioupoli",
+    "metaDescription": "File printing from USB, email or Viber. Support for PDF, Word, Excel, PowerPoint, JPG, PNG. Instant service.",
     "title": "Print from USB & Email",
     "subtitle": "Send or bring your files — we prepare them instantly",
     "backToServices": "Back to Services",
@@ -164,6 +176,8 @@
     "viberDesc": "Send photos or documents via Viber for quick printing. Ideal when you don't have a USB nearby."
   },
   "BusinessCardsPage": {
+    "metaTitle": "Business Cards | Photocopy Center Ilioupoli",
+    "metaDescription": "Design and printing of professional business cards. High quality digital printing, lamination, specialty finishes.",
     "title": "Business Cards",
     "subtitle": "Design and printing of cards that make an impression",
     "backToServices": "Back to Services",
@@ -177,6 +191,8 @@
     "finishesDesc": "Glossy or matte lamination, rounded corners, specialty papers. Every detail counts for a card that stands out."
   },
   "LaminatingPage": {
+    "metaTitle": "Laminating | Photocopy Center Ilioupoli",
+    "metaDescription": "Document laminating in glossy, matte and heavy-duty finishes. Sizes A3 to A5. On-the-spot service.",
     "title": "Document Laminating",
     "subtitle": "Protection and professional appearance for every document",
     "backToServices": "Back to Services",
@@ -196,6 +212,8 @@
     "useCase4": "Maps & Posters"
   },
   "StationeryPage": {
+    "metaTitle": "Stationery & Office Supplies | Photocopy Center Ilioupoli",
+    "metaDescription": "Wide variety of stationery and office supplies at affordable prices. Office supplies, school supplies, ink and paper.",
     "title": "Stationery & Office Supplies",
     "subtitle": "Wide variety of stationery and office supplies at affordable prices",
     "backToServices": "Back to Services",
@@ -209,6 +227,18 @@
     "inkTonerDesc": "Genuine and compatible ink and toner for the most popular printers. Ask us for the right type for your printer.",
     "paper": "Paper Products",
     "paperDesc": "A4/A3 printing paper, photocopying paper, specialty presentation papers, mailing envelopes, and much more."
+  },
+  "QuoteDialog": {
+    "button": "Request a Quote",
+    "title": "Request a Quote",
+    "description": "Describe what you need and we'll get back to you right away.",
+    "messagePlaceholder": "Describe what you need (e.g. 100 B&W A4 photocopies, thesis binding...)",
+    "sendEmail": "Send via Email",
+    "orContactUs": "Or contact us directly",
+    "phone": "Phone",
+    "email": "Email",
+    "findUs": "Find Us",
+    "viewOnMap": "View on map"
   },
   "Contact": {
     "title": "Contact",

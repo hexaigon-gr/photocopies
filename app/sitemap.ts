@@ -1,19 +1,46 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/lib/i18n/routing";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://fotoilioupoli.gr";
+
+const SERVICE_SLUGS = [
+  "blueprints",
+  "photocopies",
+  "digital-printing",
+  "binding",
+  "laminating",
+  "scanning",
+  "usb-printing",
+  "business-cards",
+  "stationery",
+];
 
 const sitemap = (): MetadataRoute.Sitemap => {
-  const routes = ["", "/admin"];
+  const entries: MetadataRoute.Sitemap = [];
 
-  return routes.flatMap((route) =>
-    routing.locales.map((locale) => ({
-      url: `${BASE_URL}/${locale}${route}`,
+  // Home page
+  for (const locale of routing.locales) {
+    entries.push({
+      url: `${BASE_URL}/${locale}`,
       lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: route === "" ? 1 : 0.8,
-    })),
-  );
+      changeFrequency: "weekly",
+      priority: 1,
+    });
+  }
+
+  // Service pages
+  for (const slug of SERVICE_SLUGS) {
+    for (const locale of routing.locales) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/services/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+      });
+    }
+  }
+
+  return entries;
 };
 
 export default sitemap;

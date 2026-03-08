@@ -4,6 +4,7 @@ import { Link } from "@/lib/i18n/navigation";
 import { BUSINESS } from "@/lib/general/constants";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { QuoteButton } from "@/components/quote-button";
 import { BasePageProps } from "@/types/page-props";
 import {
   ArrowLeft,
@@ -17,10 +18,17 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Φωτοαντίγραφα & Εκτυπώσεις | Φωτοαντιγραφικό Κέντρο Ηλιούπολης",
-  description:
-    "Ασπρόμαυρα και έγχρωμα φωτοαντίγραφα, εκτύπωση αρχείων PDF/Word/Excel, από USB και email. A3, A4, A5.",
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> => {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PhotocopiesPage" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  };
 };
 
 const services = [
@@ -59,6 +67,18 @@ const PhotocopiesPage = async ({ params }: BasePageProps) => {
           <p className="mt-4 max-w-2xl text-lg text-white/85 [text-shadow:_0_2px_8px_rgba(0,0,0,0.4)]">
             {t("subtitle")}
           </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <Button size="lg" className="cursor-pointer" asChild>
+              <a href={BUSINESS.phoneHref}>
+                <Phone className="size-4" />
+                {tNav("callUs")}
+              </a>
+            </Button>
+            <Button variant="outline" size="lg" className="cursor-pointer border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white" asChild>
+              <Link href="/#contact">{tNav("contact")}</Link>
+            </Button>
+            <QuoteButton hero />
+          </div>
         </div>
       </section>
 
@@ -181,6 +201,7 @@ const PhotocopiesPage = async ({ params }: BasePageProps) => {
             <Button variant="outline" size="lg" asChild>
               <Link href="/#contact">{tNav("contact")}</Link>
             </Button>
+            <QuoteButton />
           </div>
         </div>
       </div>
