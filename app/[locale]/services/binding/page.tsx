@@ -10,8 +10,6 @@ import {
   ArrowLeft,
   BookOpen,
   Flame,
-  GraduationCap,
-  Settings,
   Phone,
   CheckCircle2,
 } from "lucide-react";
@@ -33,8 +31,6 @@ export const generateMetadata = async ({
 const services = [
   { key: "spiralBinding", icon: BookOpen },
   { key: "thermalBinding", icon: Flame },
-  { key: "thesisBinding", icon: GraduationCap },
-  { key: "customBinding", icon: Settings },
 ] as const;
 
 const BindingPage = async ({ params }: BasePageProps) => {

@@ -9,12 +9,12 @@ import { BasePageProps } from "@/types/page-props";
 import {
   ArrowLeft,
   ScanLine,
-  FolderOpen,
   HardDrive,
   Clock,
-  BookOpen,
   Ruler,
   Phone,
+  Usb,
+  Mail,
 } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -32,14 +32,13 @@ export const generateMetadata = async ({
 };
 
 const services = [
-  { key: "expertise", icon: ScanLine },
-  { key: "archiving", icon: FolderOpen },
-  { key: "storage", icon: HardDrive },
+  { key: "scanning", icon: ScanLine },
+  { key: "delivery", icon: HardDrive },
   { key: "turnaround", icon: Clock },
-  { key: "boundDocs", icon: BookOpen },
 ] as const;
 
-const sizes = ["A0", "A1", "A2", "A3", "A4", "A5"];
+const sizes = ["A5", "A4", "A3", "A2", "A1", "A0"];
+const deliveryMethods = ["USB", "Email"];
 const formats = ["PDF", "TIFF", "JPG", "PNG"];
 
 const ScanningPage = async ({ params }: BasePageProps) => {
@@ -110,10 +109,6 @@ const ScanningPage = async ({ params }: BasePageProps) => {
                   {s}
                 </span>
               ))}
-              <span className="inline-flex items-center gap-1 rounded-md bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                <Ruler className="size-3" />
-                {t("custom")}
-              </span>
             </div>
           </div>
           <div>
@@ -127,6 +122,22 @@ const ScanningPage = async ({ params }: BasePageProps) => {
                   className="rounded-md bg-accent px-3 py-1 text-sm font-medium text-accent-foreground"
                 >
                   {f}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="mb-2 text-sm font-semibold text-muted-foreground">
+              {t("deliveryMethods")}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {deliveryMethods.map((d) => (
+                <span
+                  key={d}
+                  className="inline-flex items-center gap-1 rounded-md bg-accent px-3 py-1 text-sm font-medium text-accent-foreground"
+                >
+                  {d === "USB" ? <Usb className="size-3" /> : <Mail className="size-3" />}
+                  {d}
                 </span>
               ))}
             </div>

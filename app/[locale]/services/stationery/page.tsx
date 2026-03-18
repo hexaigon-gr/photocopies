@@ -9,8 +9,6 @@ import { BasePageProps } from "@/types/page-props";
 import {
   ArrowLeft,
   Pencil,
-  BookOpen,
-  Printer,
   FileText,
   Phone,
 } from "lucide-react";
@@ -31,8 +29,6 @@ export const generateMetadata = async ({
 
 const services = [
   { key: "officeSupplies", icon: Pencil },
-  { key: "schoolSupplies", icon: BookOpen },
-  { key: "inkToner", icon: Printer },
   { key: "paper", icon: FileText },
 ] as const;
 

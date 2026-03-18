@@ -38,7 +38,7 @@ const services = [
 ] as const;
 
 const sizes = ["A3", "A4", "A5"];
-const paperTypes = ["Standard", "Velvet", "Illustration", "300gr"];
+const paperTypes = ["Velvet", "80gr", "200gr", "300gr"];
 
 const DigitalPrintingPage = async ({ params }: BasePageProps) => {
   const { locale } = await params;

@@ -9,10 +9,7 @@ import { BasePageProps } from "@/types/page-props";
 import {
   ArrowLeft,
   Sparkles,
-  Square,
-  Shield,
   Phone,
-  CheckCircle2,
   Ruler,
 } from "lucide-react";
 import type { Metadata } from "next";
@@ -32,11 +29,9 @@ export const generateMetadata = async ({
 
 const services = [
   { key: "glossy", icon: Sparkles },
-  { key: "matte", icon: Square },
-  { key: "heavyDuty", icon: Shield },
 ] as const;
 
-const sizes = ["A3", "A4", "A5"];
+const sizes = ["A4", "A3"];
 
 const LaminatingPage = async ({ params }: BasePageProps) => {
   const { locale } = await params;
@@ -129,26 +124,6 @@ const LaminatingPage = async ({ params }: BasePageProps) => {
               </CardContent>
             </Card>
           ))}
-        </div>
-      </div>
-
-      {/* Use cases */}
-      <div className="bg-muted/30 py-12">
-        <div className="mx-auto max-w-5xl px-4">
-          <h2 className="mb-6 text-xl font-bold">{t("useCases")}</h2>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {(["useCase1", "useCase2", "useCase3", "useCase4"] as const).map(
-              (key) => (
-                <div
-                  key={key}
-                  className="flex items-center gap-2 rounded-lg border bg-background p-4"
-                >
-                  <CheckCircle2 className="size-5 shrink-0 text-primary" />
-                  <span className="text-sm font-medium">{t(key)}</span>
-                </div>
-              )
-            )}
-          </div>
         </div>
       </div>
 
