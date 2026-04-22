@@ -136,6 +136,17 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-y: scroll !important;
+  }
+
+  /* Radix scroll-lock layout-shift fix — Radix adds data-scroll-locked and
+     compensates via margin-right/padding-right, which causes content to jump
+     when dialogs/sheets open. Force the scrollbar to stay visible and zero
+     out all compensation so nothing shifts. */
+  body[data-scroll-locked] {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    overflow: visible !important;
   }
 }
 

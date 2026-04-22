@@ -211,6 +211,7 @@
     "button": "Request a Quote",
     "title": "Request a Quote",
     "description": "Describe what you need and we'll get back to you right away.",
+    "messageLabel": "Your request",
     "messagePlaceholder": "Describe what you need (e.g. 100 B&W A4 photocopies, thesis binding...)",
     "sendEmail": "Send via Email",
     "orContactUs": "Or contact us directly",

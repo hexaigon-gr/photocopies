@@ -4,8 +4,9 @@ import { MoreHorizontal } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { PageHeader } from "@/components/page-header";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { TypographyH3, TypographyRegular } from "@/components/ui/typography";
+import { UserAvatar } from "@/components/user-avatar";
 import { getStatusColor } from "@/lib/admin/utils";
 import { BasePageProps } from "@/types/page-props";
 
@@ -24,12 +25,10 @@ const UsersPage = async ({ params }: BasePageProps) => {
 
   return (
     <div className="space-y-6">
-      <div>
-        <TypographyH3>Users</TypographyH3>
-        <TypographyRegular className="text-muted-foreground">
-          Manage your team members and their permissions.
-        </TypographyRegular>
-      </div>
+      <PageHeader
+        title="Users"
+        description="Manage your team members and their permissions."
+      />
 
       <div className="grid gap-4 md:grid-cols-3">
         <Card>
@@ -76,7 +75,12 @@ const UsersPage = async ({ params }: BasePageProps) => {
             <TableBody>
               {mockUsers.map((user) => (
                 <TableRow key={user.id}>
-                  <TableCell className="font-medium">{user.name}</TableCell>
+                  <TableCell className="font-medium">
+                    <div className="flex items-center gap-2">
+                      <UserAvatar name={user.name} size="sm" />
+                      <span>{user.name}</span>
+                    </div>
+                  </TableCell>
                   <TableCell className="hidden text-muted-foreground sm:table-cell">{user.email}</TableCell>
                   <TableCell>
                     <Badge variant={user.role === "Admin" ? "default" : "secondary"}>

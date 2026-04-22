@@ -57,10 +57,17 @@ Rules, style preferences, and best practices. Review at session start.
 - **Memory leak prevention** - Use `isMountedRef` pattern for async operations in useEffects.
 - **Always clean up** - Return cleanup function for subscriptions, timers, listeners.
 
-### Performance
+### Performance — Zero Lag Rules
 
-- **Always use `useCallback`/`useMemo`** when passing functions or computed values to child components.
-- **Don't over-optimize** - Only memoize when there's an actual performance concern.
+- **Server Components by default** — only `"use client"` for event handlers, browser APIs, useState/useEffect, animations. Push it as far down the tree as possible.
+- **Small components with isolated state** — extract interactive pieces into tiny client components so parent Server Components ship zero JS. A component that owns state re-renders only itself.
+- **Lazy load heavy client components** — use `next/dynamic` with `ssr: false` for modals, charts, editors, below-the-fold widgets. Wrap route segments in `<Suspense>`.
+- **Memoize where it matters** — `React.memo` on leaf components with stable props. `useMemo`/`useCallback` for expensive derivations only. Never define objects/arrays/functions inline in JSX props of memoized children.
+- **Images with `next/image`** — automatic WebP/AVIF, responsive srcset, lazy loading. Set explicit width/height to prevent CLS. `priority` only on above-the-fold LCP images.
+- **Fonts with `next/font`** — self-hosted, preloaded, zero layout shift.
+- **Third-party scripts via `next/script`** — `strategy="lazyOnload"` for analytics, `strategy="afterInteractive"` for tag managers. Never raw `<script>` tags.
+- **CSS transitions only on `transform`/`opacity`** — never animate width/height/top/left. Avoid `will-change` on more than a few elements.
+- **Use `useTransition`/`useDeferredValue`** for non-urgent state updates to keep the UI responsive.
 - **Prefer derived state over useEffect** for computed values.
 
 ### Loading States
@@ -68,10 +75,16 @@ Rules, style preferences, and best practices. Review at session start.
 - **NEVER use "..." dots** for loading states in buttons. Use a spinner component or icon.
 - Pattern: `{isSubmitting ? <Loader2 className="size-4 animate-spin" /> : t("save")}`
 
-### Form Labels
+### Form Inputs & Labels
 
-- **Add Lucide icons to form labels** where applicable. Use `inline size-3.5` class on the icon.
+- **Add Lucide icons to ALL form labels and inputs** — every input field, textarea, and select should have a relevant Lucide icon. Use `inline size-3.5` class on the icon.
 - Pattern: `<FormLabel><User className="inline size-3.5" /> {t("name")}</FormLabel>`
+- For inputs with icons inside: use a wrapper div with the icon positioned absolutely at the start, and `pl-9` on the input.
+
+### shadcn/ui Component Rule
+
+- **If a component exists in the shadcn/ui library, use it** — never build custom versions of Button, Dialog, Select, Input, etc. Download via `npx shadcn@latest add <component>` and use the official API.
+- **`cursor-pointer` on ALL interactive elements** — buttons, dropdowns, selects, links, toggles, switches, cards with onClick. If a shadcn component doesn't include it by default, add it via className or override in `components/ui/`.
 
 ## UI / Styling
 
@@ -128,6 +141,13 @@ Rules, style preferences, and best practices. Review at session start.
 - **Icon-only buttons on mobile when space is tight** — hide button text with `hidden sm:inline` on the text span, keep the icon always visible. Prevents layout breaking on small screens.
 - **Always add `cursor-pointer`** to all interactive/clickable elements.
 
+### Icon Components
+
+- **`SocialIcon`** (`@/components/social-icon.tsx`) — ALWAYS use for social media links in footer, contact sections, navbar. Never build custom social buttons. Provides platform-specific colors (instagram, youtube, facebook, twitter, tiktok, linkedin, spotify) and hover effects.
+- **`CircleIcon`** (`@/components/CircleIcon.tsx`) — Use for icon display in feature cards, services, about sections, highlights. Renders a Lucide icon inside a colored circular background.
+- **Lucide icons** — Only use raw Lucide icons for small inline UI elements (button icons, form labels, nav items). For any prominent icon display, wrap in `CircleIcon`.
+- **`ExpandMap`** (`@/components/expand-map.tsx`) — ALWAYS use for map displays (contact sections, footer, location pages). Never embed raw Google Maps iframes. Props: `address`, `mapsUrl`, `coordinates`.
+
 ## Landing Page Patterns
 
 - **Extract business constants** — All hardcoded business data (phone, email, addresses, social URLs, map embeds) goes in `lib/general/constants.ts` as a single exported object. Never scatter these as magic strings across components.
@@ -153,6 +173,31 @@ Rules, style preferences, and best practices. Review at session start.
     // Redirect fails
   }
   ```
+
+## Drag & Drop (dnd-kit)
+
+- **Use `@dnd-kit/core` + `@dnd-kit/sortable` + `@dnd-kit/utilities`** for any drag-and-drop UI.
+- **`PointerSensor` with `distance: 8`** — prevents accidental drags when clicking interactive elements.
+- **`closestCorners`** collision detection for column/grid-based layouts (e.g., Kanban boards).
+- **`DragOverlay`** — always render a ghost card while dragging for smooth UX. Apply `shadow-xl rotate-2 opacity-90` for a natural "picked up" feel.
+- **`useSortable`** for draggable items, **`useDroppable`** for drop targets (columns).
+- **Optimistic updates** — move item visually on drop, revert on API error.
+
+## State Transitions
+
+- **`VALID_TRANSITIONS` map** — define allowed transitions as `Record<Status, Status[]>`. Keep it client-side for instant validation before API calls.
+- **Flexible forward skips** — don't force step-by-step. Users should be able to skip stages forward (e.g., PREPARING → DELIVERING directly).
+- **Terminal states** — map to empty arrays `[]`. Disable drag on items in terminal states.
+- **Special transitions** — some transitions may require extra input (e.g., reason for rejection, estimated time). Show a dialog before confirming the transition.
+
+## Reusable Component Extraction
+
+- **Extract when 3+ duplications exist** across the codebase.
+- **Standard reusable set** — keep these in `components/` (not `components/ui/`):
+  - `EmptyState` — icon + title + optional description
+  - `PageHeader` — title + optional description + children slot for action buttons
+  - `UserAvatar` — image with initials fallback, size variants (sm/md/lg)
+  - `PaginationControls` — prev/next buttons with page count, auto-hides when totalPages <= 1
 
 ## Workflow
 

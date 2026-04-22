@@ -71,11 +71,14 @@ npx shadcn@latest add <component>  # Add new shadcn/ui components
 #### UI & Design Rules
 
 - **Always use the frontend-design plugin** when working on any design or UI task
-- **Always use shadcn/ui components** — search the web for the correct install command (`npx shadcn@latest add <component>`) and usage patterns before implementing. Do not guess component APIs; look them up.
+- **Always use shadcn/ui components** — if a component exists in the shadcn/ui online library, download it (`npx shadcn@latest add <component>`) and use it. Never build custom versions of components that shadcn already provides. Search the web for the correct install command and usage patterns before implementing. Do not guess component APIs; look them up.
 - **Always use Lucide icons** (`lucide-react`) — they are the icon set used by shadcn/ui. Search for the right icon name on the web when needed.
+- **Icons in form inputs** — All input fields and textareas should have a Lucide icon at the start (inside the input or as a label prefix). Use `inline size-3.5` on the icon. Pattern: `<FormLabel><User className="inline size-3.5" /> {t("name")}</FormLabel>`
+- **`cursor-pointer` on all interactive elements** — Every clickable element (buttons, dropdowns, selects, links, toggles, cards with onClick) must have `cursor-pointer`. Add it to shadcn component overrides if missing.
 - **`components/ui/` is reserved for shadcn/ui components only** — custom components go in `components/`
-- Use `CircleIcon` (`components/CircleIcon.tsx`) for general icon display with colored circular backgrounds
-- Use `SocialIcon` (`components/social-icon.tsx`) for social media link icons with platform-specific colors
+- **`CircleIcon`** (`components/CircleIcon.tsx`) — Use for icon display in feature cards, services, about sections, or any non-social context. Renders an icon inside a colored circular background.
+- **`SocialIcon`** (`components/social-icon.tsx`) — Use for ALL social media links (footer, contact, navbar). Provides platform-specific colors (Instagram pink, YouTube red, etc.) and hover effects. Never build custom social link buttons — always use this component.
+- **`ExpandMap`** (`components/expand-map.tsx`) — Use for ALL map displays (contact sections, footer, location cards). Takes `address`, `mapsUrl`, and `coordinates` props.
 - **Business constants** — All hardcoded business data (phone, email, URLs, social links) lives in `lib/general/constants.ts`. Never scatter magic strings across components.
 
 #### Landing Page Patterns
@@ -85,6 +88,29 @@ npx shadcn@latest add <component>  # Add new shadcn/ui components
 - **Mobile menu** — Slide-in panel from right with backdrop blur overlay and body scroll lock. Never a simple dropdown.
 - **Smooth scrolling** — `scroll-behavior: smooth` on html in globals.css for all anchor links.
 - **Real photos for services** — Use actual photos with gradient overlays instead of generic Lucide icons for service/product cards.
+
+#### Button Component
+
+- `Button` has built-in `loading` and `icon` props:
+  - `loading={true}` → shows `<Loader2>` spinner, auto-disables button
+  - `icon={<Plus />}` → renders icon before children, hidden when loading
+  - `variant="brand"` → uses `--brand-primary` CSS variable for tenant-specific branding
+- Pattern: `<Button loading={isPending} icon={<Save className="size-4" />}>Save</Button>`
+
+#### Radix Scrollbar Fix
+
+- Radix dialogs/sheets inject scroll-locking styles that cause page layout shift (scrollbar disappears, content jumps).
+- **Already fixed in `globals.css`** — forces `overflow-y: scroll !important` on html and zeroes out all compensating margins/padding on `body[data-scroll-locked]`.
+- If you add a new CSS file or reset globals, ensure this fix is preserved.
+
+#### Reusable Components
+
+Standard extracted components in `components/` (NOT `components/ui/`):
+
+- `EmptyState` — icon + title + optional description (for empty tables, lists, etc.)
+- `PageHeader` — title + optional description + children slot for action buttons
+- `UserAvatar` — image with initials fallback, size variants (sm/md/lg)
+- `PaginationControls` — prev/next with page count, auto-hides when single page
 
 #### Dialog System
 
@@ -138,6 +164,7 @@ npx shadcn@latest add <component>  # Add new shadcn/ui components
 - **Locale Validation**: Layout validates locale and returns 404 for invalid locales
 - **Static Generation**: Uses `generateStaticParams()` for all locale variants
 - **Prisma Setup**: Connected to Supabase PostgreSQL database with User and Todo models
+- **Package Versions**: When adding a new package, always install the latest stable version. Never install outdated or pinned versions without explicit reason.
 
 ## Development Guidelines
 

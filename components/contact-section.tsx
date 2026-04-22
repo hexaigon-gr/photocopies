@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { BUSINESS } from "@/lib/general/constants";
+import { ExpandMap } from "@/components/expand-map";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -122,17 +123,11 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Google Maps embed */}
-            <div className="w-full aspect-video rounded-lg overflow-hidden mt-6">
-              <iframe
-                src={BUSINESS.googleMapsEmbed}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Google Maps"
+            {/* Map */}
+            <div className="mt-6">
+              <ExpandMap
+                address={BUSINESS.address.full}
+                mapsUrl={BUSINESS.googleMapsLink}
               />
             </div>
           </div>
@@ -246,8 +241,11 @@ const ContactSection = () => {
               </div>
 
               {/* Submit */}
-              <Button type="submit" className="w-full">
-                <Send className="size-4 mr-2" />
+              <Button
+                type="submit"
+                className="w-full"
+                icon={<Send className="size-4" />}
+              >
                 {t("formSend")}
               </Button>
             </form>

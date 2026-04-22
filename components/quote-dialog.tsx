@@ -10,10 +10,11 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useDialogStore } from "@/lib/stores/dialog-store";
 import { BUSINESS } from "@/lib/general/constants";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, MessageSquare, Phone, Send } from "lucide-react";
 
 export const QUOTE_DIALOG = "quote";
 
@@ -49,21 +50,28 @@ export const QuoteDialog = () => {
         </DialogHeader>
 
         {/* Message textarea */}
-        <Textarea
-          placeholder={t("messagePlaceholder")}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          rows={4}
-          className="resize-none"
-        />
+        <div className="space-y-1.5">
+          <Label htmlFor="quote-message" className="flex items-center gap-1.5">
+            <MessageSquare className="inline size-3.5" />
+            {t("messageLabel")}
+          </Label>
+          <Textarea
+            id="quote-message"
+            placeholder={t("messagePlaceholder")}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            rows={4}
+            className="resize-none"
+          />
+        </div>
 
         {/* Send button */}
         <Button
           onClick={handleSendEmail}
           disabled={!message.trim()}
           className="w-full"
+          icon={<Send className="size-4" />}
         >
-          <Send className="size-4" />
           {t("sendEmail")}
         </Button>
 
@@ -84,7 +92,7 @@ export const QuoteDialog = () => {
           {/* Phone */}
           <a
             href={BUSINESS.phoneHref}
-            className="flex items-center gap-3 rounded-lg border p-3 transition-colors duration-300 hover:bg-accent"
+            className="flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition-colors duration-300 hover:bg-accent"
           >
             <div className="flex size-9 shrink-0 items-center justify-center rounded-md bg-primary/10">
               <Phone className="size-4 text-primary" />
@@ -100,7 +108,7 @@ export const QuoteDialog = () => {
           {/* Email */}
           <a
             href={BUSINESS.emailHref}
-            className="flex items-center gap-3 rounded-lg border p-3 transition-colors duration-300 hover:bg-accent"
+            className="flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition-colors duration-300 hover:bg-accent"
           >
             <div className="flex size-9 shrink-0 items-center justify-center rounded-md bg-primary/10">
               <Mail className="size-4 text-primary" />
@@ -118,7 +126,7 @@ export const QuoteDialog = () => {
             href={BUSINESS.googleMapsLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-lg border p-3 transition-colors duration-300 hover:bg-accent"
+            className="flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition-colors duration-300 hover:bg-accent"
           >
             <div className="flex size-9 shrink-0 items-center justify-center rounded-md bg-primary/10">
               <MapPin className="size-4 text-primary" />

@@ -1,12 +1,12 @@
 import { setRequestLocale } from "next-intl/server";
-import { Save } from "lucide-react";
+import { AtSign, Globe, KeyRound, Save, Tag } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { PageHeader } from "@/components/page-header";
 import { Switch } from "@/components/ui/switch";
-import { TypographyH3, TypographyRegular } from "@/components/ui/typography";
 import { BasePageProps } from "@/types/page-props";
 
 const notificationSettings = [
@@ -21,12 +21,10 @@ const SettingsPage = async ({ params }: BasePageProps) => {
 
   return (
     <div className="space-y-6">
-      <div>
-        <TypographyH3>Settings</TypographyH3>
-        <TypographyRegular className="text-muted-foreground">
-          Manage your application preferences and configuration.
-        </TypographyRegular>
-      </div>
+      <PageHeader
+        title="Settings"
+        description="Manage your application preferences and configuration."
+      />
 
       <div className="grid gap-6">
         <Card>
@@ -36,21 +34,27 @@ const SettingsPage = async ({ params }: BasePageProps) => {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid gap-2">
-              <Label htmlFor="app-name">Application Name</Label>
+              <Label htmlFor="app-name" className="flex items-center gap-1.5">
+                <Tag className="inline size-3.5" />
+                Application Name
+              </Label>
               <Input id="app-name" defaultValue="My Application" />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="app-url">Application URL</Label>
+              <Label htmlFor="app-url" className="flex items-center gap-1.5">
+                <Globe className="inline size-3.5" />
+                Application URL
+              </Label>
               <Input id="app-url" defaultValue="https://example.com" />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="support-email">Support Email</Label>
+              <Label htmlFor="support-email" className="flex items-center gap-1.5">
+                <AtSign className="inline size-3.5" />
+                Support Email
+              </Label>
               <Input id="support-email" type="email" defaultValue="support@example.com" />
             </div>
-            <Button className="gap-2">
-              <Save className="size-4" />
-              Save Changes
-            </Button>
+            <Button icon={<Save className="size-4" />}>Save Changes</Button>
           </CardContent>
         </Card>
 
@@ -83,20 +87,27 @@ const SettingsPage = async ({ params }: BasePageProps) => {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid gap-2">
-              <Label htmlFor="current-password">Current Password</Label>
+              <Label htmlFor="current-password" className="flex items-center gap-1.5">
+                <KeyRound className="inline size-3.5" />
+                Current Password
+              </Label>
               <Input id="current-password" type="password" placeholder="Enter current password" />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="new-password">New Password</Label>
+              <Label htmlFor="new-password" className="flex items-center gap-1.5">
+                <KeyRound className="inline size-3.5" />
+                New Password
+              </Label>
               <Input id="new-password" type="password" placeholder="Enter new password" />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="confirm-password">Confirm New Password</Label>
+              <Label htmlFor="confirm-password" className="flex items-center gap-1.5">
+                <KeyRound className="inline size-3.5" />
+                Confirm New Password
+              </Label>
               <Input id="confirm-password" type="password" placeholder="Confirm new password" />
             </div>
-            <Button variant="outline" className="gap-2">
-              Update Password
-            </Button>
+            <Button variant="outline">Update Password</Button>
           </CardContent>
         </Card>
       </div>

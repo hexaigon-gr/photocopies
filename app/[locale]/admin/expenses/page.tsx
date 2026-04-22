@@ -4,8 +4,8 @@ import { MoreHorizontal } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { PageHeader } from "@/components/page-header";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { TypographyH3, TypographyRegular } from "@/components/ui/typography";
 import { getStatusColor } from "@/lib/admin/utils";
 import { BasePageProps } from "@/types/page-props";
 
@@ -31,12 +31,10 @@ const ExpensesPage = async ({ params }: BasePageProps) => {
 
   return (
     <div className="space-y-6">
-      <div>
-        <TypographyH3>Expenses</TypographyH3>
-        <TypographyRegular className="text-muted-foreground">
-          Track and manage your organization&apos;s expenses.
-        </TypographyRegular>
-      </div>
+      <PageHeader
+        title="Expenses"
+        description="Track and manage your organization's expenses."
+      />
 
       <div className="grid gap-4 md:grid-cols-3">
         <Card>
