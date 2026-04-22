@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { useTheme } from "next-themes";
 import { Link, useRouter, usePathname } from "@/lib/i18n/navigation";
 import { BUSINESS } from "@/lib/general/constants";
 import { cn } from "@/lib/general/utils";
@@ -13,7 +12,7 @@ import {
   SheetTrigger,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Menu, Phone, Sun, Moon } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
 
 const NAV_LINKS = [
   { key: "home", href: "/#hero" },
@@ -27,7 +26,6 @@ export const NavbarClient = () => {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -44,10 +42,6 @@ export const NavbarClient = () => {
   const toggleLocale = () => {
     const nextLocale = locale === "el" ? "en" : "el";
     router.replace(pathname, { locale: nextLocale });
-  };
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   const handleNavClick = () => {
@@ -138,21 +132,6 @@ export const NavbarClient = () => {
             {locale === "el" ? "EN" : "ΕΛ"}
           </Button>
 
-          {/* Theme Switcher */}
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            onClick={toggleTheme}
-            className={cn(
-              "cursor-pointer transition-colors duration-300",
-              scrolled ? "" : "text-white/80 hover:bg-white/10 hover:text-white"
-            )}
-            aria-label="Toggle theme"
-          >
-            <Sun className="size-4 scale-100 rotate-0 transition-transform duration-300 dark:scale-0 dark:-rotate-90" />
-            <Moon className="absolute size-4 scale-0 rotate-90 transition-transform duration-300 dark:scale-100 dark:rotate-0" />
-          </Button>
-
           {/* CTA Button */}
           <Button size="sm" className="cursor-pointer" asChild>
             <a href={BUSINESS.phoneHref}>
@@ -176,21 +155,6 @@ export const NavbarClient = () => {
             aria-label="Switch language"
           >
             {locale === "el" ? "EN" : "ΕΛ"}
-          </Button>
-
-          {/* Mobile Theme Switcher */}
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            onClick={toggleTheme}
-            className={cn(
-              "cursor-pointer transition-colors duration-300",
-              scrolled ? "" : "text-white/80 hover:bg-white/10 hover:text-white"
-            )}
-            aria-label="Toggle theme"
-          >
-            <Sun className="size-4 scale-100 rotate-0 transition-transform duration-300 dark:scale-0 dark:-rotate-90" />
-            <Moon className="absolute size-4 scale-0 rotate-90 transition-transform duration-300 dark:scale-100 dark:rotate-0" />
           </Button>
 
           {/* Hamburger */}
