@@ -3,10 +3,12 @@
 import { useTranslations } from "next-intl";
 import { BUSINESS } from "@/lib/general/constants";
 import { ExpandMap } from "@/components/expand-map";
+import { Reveal } from "@/components/reveal";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Card } from "@/components/ui/card";
 import {
   MapPin,
   Phone,
@@ -40,19 +42,20 @@ const ContactSection = () => {
     <section id="contact" className="bg-muted/30 py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+        <Reveal className="text-center mb-12">
+          <span className="mx-auto block h-1 w-12 rounded-full bg-accent" />
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight">
             {t("title")}
           </h2>
           <p className="mt-3 text-muted-foreground text-lg">
             {t("subtitle")}
           </p>
-        </div>
+        </Reveal>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left column: Contact info + map */}
-          <div className="space-y-6">
+          <Card className="space-y-6 border p-6 shadow-sm md:p-8">
             {/* Address */}
             <div className="flex items-start gap-3">
               <MapPin className="size-5 text-primary mt-0.5 shrink-0" />
@@ -130,10 +133,10 @@ const ContactSection = () => {
                 mapsUrl={BUSINESS.googleMapsLink}
               />
             </div>
-          </div>
+          </Card>
 
           {/* Right column: Contact form */}
-          <div>
+          <Card className="border p-6 shadow-sm md:p-8">
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name */}
               <div className="space-y-2">
@@ -249,7 +252,7 @@ const ContactSection = () => {
                 {t("formSend")}
               </Button>
             </form>
-          </div>
+          </Card>
         </div>
       </div>
     </section>

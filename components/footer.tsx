@@ -24,7 +24,7 @@ const Footer = async () => {
             <p className="text-background/70 text-sm leading-relaxed">
               {BUSINESS.tagline}
             </p>
-            <span className="inline-block rounded-full bg-primary/20 text-primary px-3 py-1 text-xs font-semibold">
+            <span className="inline-block rounded-full bg-accent/20 text-accent px-3 py-1 text-xs font-semibold">
               {BUSINESS.yearsInBusiness}+ {tNav("home") === "Home" ? "years" : "χρόνια"}
             </span>
           </div>
@@ -37,7 +37,7 @@ const Footer = async () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-background/70 hover:text-primary transition-colors duration-300 text-sm w-fit"
+                  className="text-background/70 hover:text-accent transition-colors duration-300 text-sm w-fit"
                 >
                   {link.label}
                 </Link>
@@ -50,25 +50,25 @@ const Footer = async () => {
             <h3 className="text-lg font-bold">{t("contactInfo")}</h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2">
-                <MapPin className="size-4 text-primary mt-0.5 shrink-0" />
+                <MapPin className="size-4 text-accent mt-0.5 shrink-0" />
                 <span className="text-background/70">
                   {BUSINESS.address.full}
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="size-4 text-primary shrink-0" />
+                <Phone className="size-4 text-accent shrink-0" />
                 <a
                   href={BUSINESS.phoneHref}
-                  className="text-background/70 hover:text-primary transition-colors duration-300"
+                  className="text-background/70 hover:text-accent transition-colors duration-300"
                 >
                   {BUSINESS.phone}
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="size-4 text-primary shrink-0" />
+                <Mail className="size-4 text-accent shrink-0" />
                 <a
                   href={BUSINESS.emailHref}
-                  className="text-background/70 hover:text-primary transition-colors duration-300"
+                  className="text-background/70 hover:text-accent transition-colors duration-300"
                 >
                   {BUSINESS.email}
                 </a>
@@ -90,7 +90,7 @@ const Footer = async () => {
               href={BUSINESS.credit.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-background/70 hover:text-primary transition-colors duration-300"
+              className="font-medium text-background/70 hover:text-accent transition-colors duration-300"
             >
               {BUSINESS.credit.name}
             </a>
